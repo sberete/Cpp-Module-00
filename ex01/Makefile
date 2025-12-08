@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -Werror -Wextra -Wall -std=c++98 -g3
+CFLAGS = -Werror -Wextra -Wall -std=c++98 -g3 -MMD
 OBJ_DIR = objs
 
 SRCS = $(shell find -name '*.cpp')
@@ -7,7 +7,7 @@ OBJS = $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(SRCS))
 
 DEPENDS = $(OBJS:.o=.d)
 
-NAME = megaphone
+NAME = Phonebook
 -include $(DEPEND)
 
 .PHONY: all
