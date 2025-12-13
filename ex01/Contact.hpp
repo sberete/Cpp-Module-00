@@ -13,7 +13,12 @@ class Contact
         std::string darkestsecret;
 
     public:
+        std::string getFirstname();
+        std::string getLastname();
+        std::string getNickname();
         Contact();
+        ~Contact();
+        void add();
 }; 
 
 #endif

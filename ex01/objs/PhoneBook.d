@@ -1,1 +1,1 @@
-objs/./PhoneBook.o: PhoneBook.cpp
+objs/./PhoneBook.o: PhoneBook.cpp PhoneBook.hpp Contact.hpp
