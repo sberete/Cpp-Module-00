@@ -13,12 +13,19 @@ class Contact
         std::string darkestsecret;
 
     public:
-        std::string getFirstname();
-        std::string getLastname();
-        std::string getNickname();
+        enum O_flag
+        {
+            FIRSTNAME,
+            LASTNAME,
+            NICKNAME,
+        };
+        std::string getFirstname() const;
+        std::string getLastname() const;
+        std::string getNickname() const;
+        std::string ayo(O_flag);
+        void add();
         Contact();
         ~Contact();
-        void add();
 }; 
 
 #endif

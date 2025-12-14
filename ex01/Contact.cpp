@@ -24,12 +24,27 @@ void Contact::add()
 	std::cin >> darkestsecret;
 }
 
+std::string Contact::getFirstname() const
+{
+	return (this->firstname);
+}
+
+std::string Contact::getLastname() const
+{
+	return (this->lastname);
+}
+
+std::string Contact::getNickname() const
+{
+	return (this->nickname);
+}
+
 static std::string formate_string(std::string str)
 {
 	std::string buffer = str;
 	std::size_t len = buffer.size() - 9;
 	buffer.replace(9, len, ".");
-	return buffer;
+	return (buffer);
 }
 
 static std::string extand_string(std::string str)
@@ -37,42 +52,30 @@ static std::string extand_string(std::string str)
 	std::string buffer = str;
 	std::size_t len = 10 - buffer.size();
 	buffer.insert(0, len, ' ');
-	return buffer;
+	return (buffer);
 }
 
-std::string Contact::getFirstname()
+static std::string Test12(std::string str)
 {
-	std::string str;
-	str = firstname;
-	if (str.empty())
-		str = "";
 	if (str.size() > 10)
-		str = formate_string(str);
+		return (formate_string(str));
 	else if (str.size() < 10)
-		str = extand_string(str);
-	return str;	
+		return (extand_string(str));
+	else
+		return (str);
 }
-std::string Contact::getLastname()
+
+std::string Contact::ayo(O_flag flag)
 {
-	std::string str;
-	str = lastname;
-	if (str.empty())
-		str = "";
-	if (str.size() > 10)
-		str = formate_string(str);
-	else if (str.size() < 10)
-		str = extand_string(str);
-	return str;	
-}
-std::string Contact::getNickname()
-{
-	std::string str;
-	str = nickname;
-	if (str.empty())
-		str = "";
-	if (str.size() > 10)
-		str = formate_string(str);
-	else if (str.size() < 10)
-		str = extand_string(str);
-	return str;	
+	switch (flag)
+	{
+		case FIRSTNAME:
+			return (Test12(getFirstname()));
+		case LASTNAME:
+			return (Test12(getLastname()));
+		case NICKNAME:
+			return (Test12(getNickname()));
+		default:
+			return ("");
+	}
 }

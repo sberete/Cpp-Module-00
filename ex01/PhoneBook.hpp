@@ -10,7 +10,6 @@ class PhoneBook
         Contact contact[8];
         size_t nb_contact;
         void search();
-        int check_validity();
         PhoneBook();
         ~PhoneBook();
 };
