@@ -18,5 +18,5 @@ void PhoneBook::search()
         return ;
     std::cout << "index" << " | "<< " firstname" << " | " << " last_name" << " | " << "  nickname" << std::endl;
     for(size_t i = 0; i < nb_contact; i++)
-        std::cout << "    " << i + 1 << " | " << contact[i].ayo(Contact::FIRSTNAME) << " | " << contact[i].ayo(Contact::LASTNAME) << " | " << contact[i].ayo(Contact::NICKNAME) << std::endl;
+        std::cout << "    " << i + 1 << " | " << contact[i].formatField(Contact::FIRSTNAME) << " | " << contact[i].formatField(Contact::LASTNAME) << " | " << contact[i].formatField(Contact::NICKNAME) << std::endl;
 }

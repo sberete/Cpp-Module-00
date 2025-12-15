@@ -65,7 +65,7 @@ static std::string formatForColumn(std::string str)
 		return (str);
 }
 
-std::string Contact::check_flag(O_flag flag)
+std::string Contact::formatField(O_flag flag)
 {
 	switch (flag)
 	{
