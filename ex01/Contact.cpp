@@ -39,7 +39,7 @@ std::string Contact::getNickname() const
 	return (this->nickname);
 }
 
-static std::string formate_string(std::string str)
+static std::string trunc_string(std::string str)
 {
 	std::string buffer = str;
 	std::size_t len = buffer.size() - 9;
@@ -55,26 +55,26 @@ static std::string extand_string(std::string str)
 	return (buffer);
 }
 
-static std::string Test12(std::string str)
+static std::string formatForColumn(std::string str)
 {
 	if (str.size() > 10)
-		return (formate_string(str));
+		return (trunc_string(str));
 	else if (str.size() < 10)
 		return (extand_string(str));
 	else
 		return (str);
 }
 
-std::string Contact::ayo(O_flag flag)
+std::string Contact::check_flag(O_flag flag)
 {
 	switch (flag)
 	{
 		case FIRSTNAME:
-			return (Test12(getFirstname()));
+			return (formatForColumn(getFirstname()));
 		case LASTNAME:
-			return (Test12(getLastname()));
+			return (formatForColumn(getLastname()));
 		case NICKNAME:
-			return (Test12(getNickname()));
+			return (formatForColumn(getNickname()));
 		default:
 			return ("");
 	}

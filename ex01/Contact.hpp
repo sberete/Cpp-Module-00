@@ -22,7 +22,7 @@ class Contact
         std::string getFirstname() const;
         std::string getLastname() const;
         std::string getNickname() const;
-        std::string ayo(O_flag);
+        std::string check_flag(O_flag);
         void add();
         Contact();
         ~Contact();
