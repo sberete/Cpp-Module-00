@@ -1,4 +1,5 @@
 #include "PhoneBook.hpp"
+#include <limits>
 
 int main()
 {
@@ -8,18 +9,19 @@ int main()
 
     for(;;)
     {
-        std::cout << "Available commands: add | search | exit" << std::endl;
+        std::cout << "Available commands: ADD | SEARCH | EXIT" << std::endl;
         std::cin >> str;
         if (std::cin.eof()) 
         {
             std::cout << "End of file detected. Program terminated." << std::endl;
             break;
         }
-        if (str.compare("add") == 0)
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        if (str.compare("ADD") == 0)
             pb.addContactintoPhoneBook(i++);
-        if (str.compare("search") == 0)
+        if (str.compare("SEARCH") == 0)
             pb.search();
-        if (str.compare("exit") == 0)
+        if (str.compare("EXIT") == 0)
             return(0);
         if (i >= MAX_CONTACT){i = 0;}
     }

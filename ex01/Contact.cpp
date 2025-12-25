@@ -1,47 +1,64 @@
 #include "Contact.hpp"
+#include <cctype>
+#include <cstdlib>
 
 Contact::Contact(){}
 
 Contact::~Contact(){}
 
+static bool isPrintableAndNotEmpty(const std::string& str)
+{
+    bool hasNonSpace = false;
+
+    for (std::size_t i = 0; i < str.size(); i++)
+    {
+        if (!std::isprint(str[i]))
+            return false;
+        if (!std::isspace(str[i]))
+            hasNonSpace = true;
+    }
+    return hasNonSpace;
+}
+
+static std::string getValidInput(const std::string& prompt)
+{
+    std::string input;
+
+    for(;;)
+    {
+        std::cout << prompt;
+        if (!std::getline(std::cin, input))
+        {
+            std::cout << std::endl << "EOF detected. Exiting." << std::endl;
+            exit(0);
+        }
+        if (isPrintableAndNotEmpty(input))
+            return input;
+
+        std::cout << "Invalid input. Please try again." << std::endl;
+    }
+}
+
 void Contact::add()
 {
-    std::cout << "Enter first name: ";
-    std::cin >> _firstname;
-    std::cout << "Enter last name: ";
-    std::cin >> _lastname;
-    std::cout << "Enter nickname: ";
-    std::cin >> _nickname;
-    std::cout << "Enter phone number: ";
-    std::cin >> _phonenumber;
-    std::cout << "Enter darkest secret: ";
-    std::cin >> _darkestsecret;
+    setFirstname(getValidInput("Enter first name: "));
+    setLastname(getValidInput("Enter last name: "));
+    setNickname(getValidInput("Enter nickname: "));
+    setPhonenumber(getValidInput("Enter phone number: "));
+    setDarkestsecret(getValidInput("Enter darkest secret: "));
 }
 
-std::string Contact::getFirstname() const
-{
-	return (this->_firstname);
-}
+void Contact::setFirstname(const std::string& firstname) {_firstname = firstname;}
+void Contact::setLastname(const std::string& lastname) {_lastname = lastname;}
+void Contact::setNickname(const std::string& nickname) {_nickname = nickname;}
+void Contact::setPhonenumber(const std::string& phonenumber) {_phonenumber = phonenumber;}
+void Contact::setDarkestsecret(const std::string& darkestsecret) {_darkestsecret = darkestsecret;}
 
-std::string Contact::getLastname() const
-{
-	return (this->_lastname);
-}
-
-std::string Contact::getNickname() const
-{
-	return (this->_nickname);
-}
-
-std::string Contact::getPhoneNumber() const
-{
-	return (this->_phonenumber);
-}
-
-std::string Contact::getDarkestSecret() const
-{
-	return (this->_darkestsecret);
-}
+std::string Contact::getFirstname() const{return (this->_firstname);}
+std::string Contact::getLastname() const{return (this->_lastname);}
+std::string Contact::getNickname() const{return (this->_nickname);}
+std::string Contact::getPhoneNumber() const{return (this->_phonenumber);}
+std::string Contact::getDarkestSecret() const{return (this->_darkestsecret);}
 
 static std::string trunc_string(std::string str)
 {

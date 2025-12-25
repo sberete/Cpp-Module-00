@@ -17,10 +17,17 @@ class Contact
         std::string getNickname() const;        
         std::string getPhoneNumber() const;
         std::string getDarkestSecret() const;
-        std::string getFormattedValue(O_flag);
+
+        void setFirstname(const std::string& firstname);
+        void setLastname(const std::string& lastname);
+        void setNickname(const std::string& nickname);
+        void setPhonenumber(const std::string& phonenumber);
+        void setDarkestsecret(const std::string& darkestsecret);
+        
         void add();
         Contact();
         ~Contact();
+        std::string getFormattedValue(O_flag);
 
     private:
         std::string _firstname;

@@ -21,7 +21,7 @@ class PhoneBook
 
     private:
         Contact _contact[MAX_CONTACT];
-        uint8_t _nb_contact;
+        uint8_t _nbContact;
 };
 
 #endif
